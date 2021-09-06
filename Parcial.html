@@ -1,0 +1,84 @@
+<body>
+<canvas id="canvas" width="1000px" height="1000px"/>
+<script>
+function dibuja() {
+  var lienzo = document.getElementById('canvas');
+  if (lienzo.getContext) {
+    var ctx = lienzo.getContext('2d');
+    ctx.clearRect(45, 45, 60, 60);
+    ctx.strokeRect(50, 50, 50, 50);
+  }
+}
+
+function triangulo(tab, x1, y1, x2, y2, x3, y3, fill=false) {
+    tab.beginPath();
+    tab.moveTo(x1, y1);
+    tab.lineTo(x2, y2);
+    tab.lineTo(x3, y3);
+    if (fill)
+        tab.fill();
+    else {
+        tab.closePath();
+        tab.stroke();
+    }
+}
+
+function draw() {
+  var canvas = document.getElementById('canvas');
+  if (canvas.getContext) {
+    var ctx = canvas.getContext('2d');
+//rotacion
+    //ctx.rotate(-10 * Math.PI / 360);
+
+    ctx.fillStyle = '#736B6A';
+    x1=30;  y1=0; x2=1; y2=100; x3=60; y3=100;   
+    triangulo(ctx, x1, y1, x2, y2, x3, y3, true)
+
+    ctx.fillStyle = '#b9b9b9';
+    x1=60;  y1=100; x2=10; y2=180; x3=40; y3=200;   
+    triangulo(ctx, x1, y1, x2, y2, x3, y3, true);
+
+    ctx.fillStyle = '#403A39';
+    x1=0;  y1=200; x2=10; y2=300; x3=40; y3=280;   
+    triangulo(ctx, x1, y1, x2, y2, x3, y3, true)
+
+//------------------------------------------------
+
+    ctx.fillStyle = '#736B6A';
+    x1=140;  y1=50; x2=110; y2=150; x3=170; y3=150;   
+    triangulo(ctx, x1, y1, x2, y2, x3, y3, true)
+
+    ctx.fillStyle = '#b9b9b9';
+    x1=140;  y1=50; x2=90; y2=140; x3=110; y3=150;   
+    triangulo(ctx, x1, y1, x2, y2, x3, y3, true);
+
+    ctx.fillStyle = '#403A39';
+    x1=140;  y1=50; x2=170; y2=150; x3=190; y3=140;   
+    triangulo(ctx, x1, y1, x2, y2, x3, y3, true)
+
+//------------------------------------------------
+
+    ctx.rotate(-50 * Math.PI / 360);
+    dx=100;  dy=120;
+
+    ctx.fillStyle = '#736B6A';
+    x1=140;  y1=50; x2=110; y2=150; x3=170; y3=150;   
+    triangulo(ctx, x1+dx, y1+dy, x2+dx, y2+dy, x3+dx, y3+dy, true)
+
+    ctx.fillStyle = '#b9b9b9';
+    x1=140;  y1=50; x2=90; y2=140; x3=110; y3=150;   
+    triangulo(ctx, x1+dx, y1+dy, x2+dx, y2+dy, x3+dx, y3+dy, true);
+
+    ctx.fillStyle = '#403A39';
+    x1=140;  y1=50; x2=170; y2=150; x3=190; y3=140;   
+    triangulo(ctx, x1+dx, y1+dy, x2+dx, y2+dy, x3+dx, y3+dy, true)
+
+
+  
+
+  }
+}
+//dibuja();
+draw();
+</script>
+</body>
